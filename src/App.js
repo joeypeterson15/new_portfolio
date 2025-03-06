@@ -1,25 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
+const { Header, Content, Footer, Sider } = Layout;
+const items1 = ['1', '2', '3'].map((key) => ({
+  key,
+  label: `nav ${key}`,
+}));
+const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
+  const key = String(index + 1);
+  return {
+    key: `sub${key}`,
+    icon: React.createElement(icon),
+    label: `subnav ${key}`,
+    children: Array.from({
+      length: 4,
+    }).map((_, j) => {
+      const subKey = index * 4 + j + 1;
+      return {
+        key: subKey,
+        label: `option${subKey}`,
+      };
+    }),
+  };
+});
+const App = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout>
+      <Header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['1']}
+          items={items1}
+          style={{
+            flex: 1,
+            minWidth: 0,
+          }}
+        />
+      </Header>
+      <div
+        style={{
+          padding: '0 48px',
+        }}
+      >
+        <Breadcrumb
+          style={{
+            margin: '16px 0',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <Layout
+          style={{
+            padding: '24px 0',
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          <Sider
+            style={{
+              background: colorBgContainer,
+            }}
+            width={200}
+          >
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              style={{
+                height: '100%',
+              }}
+              items={items2}
+            />
+          </Sider>
+          <Content
+            style={{
+              padding: '0 24px',
+              minHeight: 280,
+            }}
+          >
+            Content
+          </Content>
+        </Layout>
+      </div>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        {/* Ant Design ©{new Date().getFullYear()} Created by Ant UED */}
+      </Footer>
+    </Layout>
   );
-}
-
+};
 export default App;
