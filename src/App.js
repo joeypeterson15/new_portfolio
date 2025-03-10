@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -10,6 +10,11 @@ import {
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { About_Me } from './text/intro_page';
+import Texty from 'rc-texty';
+// import Button from 'antd/lib/button';
+import 'rc-texty/assets/index.css';
+// import TweenOne from 'rc-tween-one';
+
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -34,6 +39,14 @@ const items = [
 ];
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [show, setShow] = useState(true)
+  const showWelcomeText = () => {
+    setShow(!show)
+  }
+  useEffect(() => {
+    setTimeout(showWelcomeText, 800)
+  }, [])
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -54,7 +67,24 @@ const App = () => {
             background: colorBgContainer,
           }}
         >
-          Hi, I'm Joey Peterson
+          {/* <div className="texty-demo" style={{ marginTop: 16 }}>
+          </div> */}
+          <Texty>{show && 'Ant Motion'}</Texty>
+          {/* {show && (
+            <TweenOne
+              animation={{
+                scale: 1.2,
+                opacity: 1,
+                duration: 500,
+                type: 'from',
+                ease: 'easeOutBack'
+              }}
+            >
+              <div style={{ width: '100px', height: '100px', backgroundColor: 'red' }}>
+                Animated Element
+              </div>
+            </TweenOne>
+          )} */}
         </Header>
         <Content
           style={{
