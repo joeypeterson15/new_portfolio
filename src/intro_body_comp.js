@@ -43,7 +43,7 @@ const Slide = forwardRef(function Slide(
             exit={{ opacity: 0, x: direction * -50 }}
             style={{ ...box, backgroundColor: color }}
         >
-            <h1>
+            <h1 style={{paddingLeft: '15px'}}>
                 {link['link']}
 
             </h1>

@@ -3,10 +3,11 @@
 export const container: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
-    width: 400,
+    width: '400',
     height: 400,
-    position: "relative",
-    marginLeft: '30%'
+    padding: '20px',
+    // position: "relative",
+    marginLeft: '35%'
     // backgroundColor: 'red'
 }
 
@@ -32,8 +33,9 @@ export const iconsProps = {
 
 export const button: React.CSSProperties = {
     backgroundColor: "#0cdcf7",
-    width: 40,
-    height: 40,
+    padding: '10px',
+    width: 80,
+    height: 80,
     borderRadius: "50%",
     display: "flex",
     justifyContent: "center",
@@ -44,8 +46,8 @@ export const button: React.CSSProperties = {
 }
 
 export const box: React.CSSProperties = {
-    width: 250,
-    height: 250,
+    width: '75rem',
+    height: '25rem',
     backgroundColor: "#0cdcf7",
     borderRadius: "10px",
     border: '1px solid black'
