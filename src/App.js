@@ -36,7 +36,7 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <div id='container_div'>
       <AnimatePresence id='animate_div' initial={false}>
           {isVisible ? (
             <motion.div

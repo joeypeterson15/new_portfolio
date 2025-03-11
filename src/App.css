@@ -10,10 +10,23 @@ margin-left: 1rem;
     place-items: center;
 } */
 /* #animate_div{
- width: 100%;
+ position: relative;
+ width: 20%;
  height: 10rem;
 
 } */
+
+#container_div {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 70%;
+  height: 70%;
+  justify-content: "center";
+  align-items: "center";
+}
 h1{
   position: relative;
   font-family: "Poppins", sans-serif;

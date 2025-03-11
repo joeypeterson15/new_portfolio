@@ -3,11 +3,11 @@
 export const container: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
-    width: '400',
-    height: 400,
+    width: '200',
+    height: 600,
     padding: '20px',
-    // position: "relative",
-    marginLeft: '35%'
+    position: "relative",
+    marginLeft: '2%'
     // backgroundColor: 'red'
 }
 
@@ -43,11 +43,13 @@ export const button: React.CSSProperties = {
     position: "relative",
     zIndex: 1,
     outlineOffset: 2,
+    // border: '0.1px solid black'
 }
 
 export const box: React.CSSProperties = {
-    width: '75rem',
-    height: '25rem',
+    position: 'relative',
+    width: '60rem',
+    height: '35rem',
     backgroundColor: "#0cdcf7",
     borderRadius: "10px",
     border: '1px solid black'
