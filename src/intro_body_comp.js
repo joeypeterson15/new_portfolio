@@ -43,29 +43,51 @@ const Slide = forwardRef(function Slide(
             exit={{ opacity: 0, x: direction * -50 }}
             style={{ ...box, backgroundColor: color }}
         >
-            {link}
+            <h1>
+                {link['link']}
+
+            </h1>
         </motion.div>
     )
 })
 
 export default function UsePresenceData() {
-    const items = [0, 1]
     const links = [
-        'Projects',
-        'About',
+        {
+            'link': 'Projects',
+            'color': '#0cdcf7'
 
+        },
+        {
+            'link': 'About',
+            'color': 'rgba(236, 34, 37, 0.5)'
+
+        }
+        
     ]
+    // let linksIndex = 0
+
+    
     // const [selectLink]
-    const [selectedItem, setSelectedItem] = useState(items[0])
+    const [selectedIndex, setSelectedIndex] = useState(0)
     const [direction, setDirection] = useState(1)
 
     function setSlide(newDirection) {
-        const nextItem = wrap(1, items.length, selectedItem + newDirection)
-        setSelectedItem(nextItem)
+        console.log('new direction: ', newDirection)
+
+        if (selectedIndex >= 1 && newDirection == 1){
+            setSelectedIndex(0)
+        }
+        else if (selectedIndex <= 0 && newDirection == -1){
+            setSelectedIndex(1)
+        } else {
+            setSelectedIndex(selectedIndex + newDirection)
+        }
+            
         setDirection(newDirection)
     }
 
-    const color = `red var(--hue-${selectedItem})`
+    const color = links[selectedIndex]['color']
     // const color = 'red'
 
     return (
@@ -86,7 +108,7 @@ export default function UsePresenceData() {
                 initial={false}
                 mode="popLayout"
             >
-                <Slide key={selectedItem} color={color} link={links[selectedItem]}/>
+                <Slide key={selectedIndex} color={color} link={links[selectedIndex]}/>
                     
             </AnimatePresence>
             <motion.button

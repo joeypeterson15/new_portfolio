@@ -6,7 +6,7 @@ export const container: React.CSSProperties = {
     width: 400,
     height: 400,
     position: "relative",
-    marginLeft: '10rem'
+    marginLeft: '30%'
     // backgroundColor: 'red'
 }
 
