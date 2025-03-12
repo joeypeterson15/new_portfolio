@@ -17,6 +17,7 @@ margin-left: 1rem;
 } */
 
 #container_div {
+  align-items: center;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -30,8 +31,10 @@ margin-left: 1rem;
 h1{
   position: relative;
   font-family: "Poppins", sans-serif;
-  color: #f6d8d5;
+  /* color: #f6d8d5; */
+  color: black;
   background-image: radial-gradient( #f6d8d5);
+  /* background-image: radial-gradient( black); */
   font-size: 50px;
 }
 h1::before{
@@ -58,6 +61,7 @@ h1::after{
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-stroke: 1px #ec2225;
+  /* -webkit-text-stroke: 1px black; */
   transition: 0.2s;
 }
 h1:hover::after{

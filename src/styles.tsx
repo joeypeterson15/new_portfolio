@@ -7,7 +7,7 @@ export const container: React.CSSProperties = {
     height: 600,
     padding: '20px',
     position: "relative",
-    marginLeft: '2%'
+    // marginLeft: '2%'
     // backgroundColor: 'red'
 }
 
@@ -42,15 +42,18 @@ export const button: React.CSSProperties = {
     alignItems: "center",
     position: "relative",
     zIndex: 1,
-    outlineOffset: 2,
-    // border: '0.1px solid black'
+    outlineOffset: 10,
+    border: '2px solid #ec2225'
 }
 
 export const box: React.CSSProperties = {
+    display: 'flex',
+    justifyContent: 'center',
+    // alignItems: 'center',
     position: 'relative',
     width: '60rem',
     height: '35rem',
     backgroundColor: "#0cdcf7",
     borderRadius: "10px",
-    border: '1px solid black'
+    // border: '1px solid black'
 }

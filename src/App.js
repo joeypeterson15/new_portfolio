@@ -37,18 +37,20 @@ const App = () => {
 
   return (
     <div id='container_div'>
-      <AnimatePresence id='animate_div' initial={false}>
-          {isVisible ? (
-            <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            key="box"
-            >
-            <h1 data-text="Welcome to my portfolio! My name is Joey Peterson and I'm a passionate software engineer">Welcome to my portfolio! My name is Joey Peterson and I'm a passionate software engineer</h1>
-            </motion.div>
-          ) : null}
-      </AnimatePresence>
+      <div id='welcome_text' style={{paddingLeft: '3rem'}}>
+        <AnimatePresence id='animate_div' initial={false}>
+            {isVisible ? (
+              <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              key="box"
+              >
+              <h1 data-text="Welcome to my portfolio! My name is Joey Peterson and I'm a passionate software engineer">Welcome to my portfolio! My name is Joey Peterson and I'm a passionate software engineer</h1>
+              </motion.div>
+            ) : null}
+        </AnimatePresence>
+      </div>
       <UsePresenceData />
     </div>
 

@@ -1,6 +1,7 @@
 import { forwardRef, SVGProps, useState } from "react";
 import { AnimatePresence, motion, usePresenceData, wrap } from "motion/react"
 // import './styles.tsx'
+import { About_Me } from "./text/intro_page.js";
 import { container, iconsProps, box, button } from "./styles.tsx";
 
 function ArrowLeft() {
@@ -43,10 +44,13 @@ const Slide = forwardRef(function Slide(
             exit={{ opacity: 0, x: direction * -50 }}
             style={{ ...box, backgroundColor: color }}
         >
-            <h1 style={{paddingLeft: '15px'}}>
-                {link['link']}
+            <h2 style={{paddingLeft: '15px'}}>
+                <span>{link['link']}</span>
+                {link['text'] && 
+                    <p>{About_Me}</p>
+                }
 
-            </h1>
+            </h2>
         </motion.div>
     )
 })
@@ -54,15 +58,17 @@ const Slide = forwardRef(function Slide(
 export default function UsePresenceData() {
     const links = [
         {
-            'link': 'Projects',
-            'color': '#0cdcf7'
-
+            'link': 'About',
+            'color': 'rgba(236, 34, 37, 0.5)',
+            'text': About_Me
+            
         },
         {
-            'link': 'About',
-            'color': 'rgba(236, 34, 37, 0.5)'
+            'link': 'Projects',
+            'color': '#0cdcf7',
+            'text': ''
 
-        }
+        },
         
     ]
     // let linksIndex = 0
